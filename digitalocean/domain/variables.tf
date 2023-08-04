@@ -8,3 +8,8 @@ variable "name" {
 variable "ip_address" {
   type = string
 }
+
+variable "aliases" {
+  type    = list(string)
+  default = []
+}

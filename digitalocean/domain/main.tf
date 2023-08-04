@@ -14,3 +14,12 @@ resource "digitalocean_record" "a" {
   name   = "@"
   ttl    = 3600
 }
+
+resource "digitalocean_record" "cname" {
+  type   = "CNAME"
+  domain = digitalocean_domain.this.id
+  value  = "@"
+  name   = each.value
+
+  for_each = toset(var.aliases)
+}
