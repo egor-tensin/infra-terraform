@@ -1,5 +1,5 @@
 locals {
-  sshd_config = templatefile("${path.module}/etc/sshd_config", {
+  sshd_config = templatefile("${path.module}/../../etc/sshd_config", {
     port  = var.ssh_port
     users = [var.user]
   })
@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "this" {
   }
 
   metadata = {
-    user-data = templatefile("${path.module}/etc/cloud-init.cfg", {
+    user-data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
       user        = var.user
       ssh_keys    = var.ssh_keys
       sshd_config = local.sshd_config

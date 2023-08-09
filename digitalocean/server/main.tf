@@ -1,5 +1,5 @@
 locals {
-  sshd_config = templatefile("${path.module}/etc/sshd_config", {
+  sshd_config = templatefile("${path.module}/../../etc/sshd_config", {
     port  = var.ssh_port
     users = [var.user]
   })
@@ -13,7 +13,7 @@ resource "digitalocean_droplet" "this" {
   monitoring = true
   ipv6       = false
   vpc_uuid   = var.vpc_id
-  user_data = templatefile("${path.module}/etc/cloud-init.cfg", {
+  user_data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
     user        = var.user
     ssh_keys    = var.ssh_keys
     sshd_config = local.sshd_config
