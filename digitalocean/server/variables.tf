@@ -38,3 +38,20 @@ variable "size" {
   type    = string
   default = "s-1vcpu-2gb"
 }
+
+variable "alert_cpu_enable" {
+  type    = bool
+  default = true
+}
+variable "alert_cpu_threshold" {
+  type    = number
+  default = 80
+}
+variable "alert_loadavg1_enable" {
+  type    = bool
+  default = true
+}
+variable "alert_loadavg1_threshold" {
+  type    = number
+  default = 5
+}
