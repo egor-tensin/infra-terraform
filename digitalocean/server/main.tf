@@ -3,21 +3,22 @@ locals {
     port  = var.ssh_port
     users = [var.user]
   })
-}
-
-resource "digitalocean_droplet" "this" {
-  image      = var.image
-  name       = var.name
-  region     = var.region
-  size       = var.size
-  monitoring = true
-  ipv6       = false
-  vpc_uuid   = var.vpc_id
   user_data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
     user        = var.user
     ssh_keys    = var.ssh_keys
     sshd_config = local.sshd_config
   })
+}
+
+resource "digitalocean_droplet" "this" {
+  image             = var.image
+  name              = var.name
+  region            = var.region
+  size              = var.size
+  monitoring        = true
+  ipv6              = false
+  vpc_uuid          = var.vpc_id
+  user_data         = local.user_data
   volume_ids        = var.volume_ids
   droplet_agent     = false
   graceful_shutdown = true
