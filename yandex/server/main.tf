@@ -3,6 +3,11 @@ locals {
     port  = var.ssh_port
     users = [var.user]
   })
+  user_data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
+    user        = var.user
+    ssh_keys    = var.ssh_keys
+    sshd_config = local.sshd_config
+  })
 }
 
 resource "yandex_compute_instance" "this" {
@@ -30,11 +35,7 @@ resource "yandex_compute_instance" "this" {
   }
 
   metadata = {
-    user-data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
-      user        = var.user
-      ssh_keys    = var.ssh_keys
-      sshd_config = local.sshd_config
-    })
+    user-data = local.user_data
   }
 
   allow_stopping_for_update = true
