@@ -7,8 +7,8 @@ variable "name" {
 }
 variable "image" {
   type = string
-  # Debian 11
-  default = "fd8sqojvm458b3jr5nfd"
+  # Debian 12
+  default = "fd8k2ecv2i5bmiblro64"
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
 }
 variable "subnet_id" {
