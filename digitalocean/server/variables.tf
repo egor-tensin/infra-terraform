@@ -34,7 +34,7 @@ variable "ssh_port" {
 
 variable "image" {
   type    = string
-  default = "debian-12-x64"
+  default = "debian-13-x64"
   # Get the full list:
   #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?type=distribution" | jq .
 }
