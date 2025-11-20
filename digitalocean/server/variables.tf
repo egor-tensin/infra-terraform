@@ -34,6 +34,8 @@ variable "ssh_port" {
 
 variable "image" {
   type    = string
+  # TODO: switch to Debian 13 when dante-server becomes available there.
+  # Alternatively, switch to a different SOCKS server.
   default = "debian-12-x64"
   # Get the full list:
   #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?type=distribution" | jq .
