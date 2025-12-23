@@ -22,6 +22,12 @@ resource "digitalocean_droplet" "this" {
   volume_ids        = var.volume_ids
   droplet_agent     = false
   graceful_shutdown = true
+
+  timeouts {
+    create = "3m"
+    update = "5m"
+    delete = "3m"
+  }
 }
 
 resource "digitalocean_project_resources" "this" {

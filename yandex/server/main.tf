@@ -39,4 +39,10 @@ resource "yandex_compute_instance" "this" {
   }
 
   allow_stopping_for_update = true
+
+  timeouts {
+    create = "3m"
+    update = "5m"
+    delete = "3m"
+  }
 }
