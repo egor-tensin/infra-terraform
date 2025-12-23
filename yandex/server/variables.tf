@@ -10,11 +10,11 @@ variable "image" {
   # Debian 11
   #default = "fd8fccvfosff76l4g9cu"
   # Debian 12
-  default = "fd8k2ecv2i5bmiblro64"
+  #default = "fd8k2ecv2i5bmiblro64"
   # Ubuntu 22.04
   #default = "fd8oik3g61qm14kcklca"
   # Ubuntu 24.04
-  #default = "fd8cc75vi959cul95ra1"
+  default = "fd8cc75vi959cul95ra1"
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
 }
 variable "subnet_id" {
