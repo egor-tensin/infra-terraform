@@ -11,8 +11,6 @@ variable "image" {
   #default = "fd8fccvfosff76l4g9cu"
   # Debian 12
   default = "fd8k2ecv2i5bmiblro64"
-  # Ubuntu 20.04
-  #default = "fd8e4du4rapbt83p6c7i"
   # Ubuntu 22.04
   #default = "fd8oik3g61qm14kcklca"
   # Ubuntu 24.04
