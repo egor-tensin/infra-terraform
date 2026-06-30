@@ -33,7 +33,8 @@ variable "ssh_port" {
 }
 
 variable "image" {
-  type    = string
+  type = string
+
   #default = "debian-12-x64"
   #default = "debian-13-x64"
   #default = "ubuntu-22-04-x64"
@@ -42,7 +43,8 @@ variable "image" {
   #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?type=distribution" | jq .
 }
 variable "size" {
-  type    = string
+  type = string
+
   default = "s-1vcpu-2gb"
   # Get the full list:
   #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/sizes" | jq .
