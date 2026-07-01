@@ -27,9 +27,9 @@ variable "image" {
   # Ubuntu 22.04
   #default = "fd8oik3g61qm14kcklca"
   # Ubuntu 24.04
-  #default = "fd8cc75vi959cul95ra1"
+  default = "fd8cc75vi959cul95ra1"
   # Ubuntu 26.04
-  default = "fd8h10u4sm2tg8cc7knq"
+  #default = "fd8h10u4sm2tg8cc7knq"
 
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
 }
