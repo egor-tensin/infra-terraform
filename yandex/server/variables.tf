@@ -3,6 +3,14 @@ variable "zone" {
 
   # The full list is at https://yandex.cloud/ru/docs/overview/concepts/geo-scope
 }
+variable "platform" {
+  type    = string
+  default = "standard-v2"
+  # ^^^ The least common denominator.
+
+  # The full list is at https://yandex.cloud/ru/docs/compute/concepts/vm-platforms
+  # Please notice that some platforms are unavailable in certain zones.
+}
 
 variable "name" {
   type = string

@@ -11,7 +11,9 @@ locals {
 }
 
 resource "yandex_compute_instance" "this" {
-  zone     = var.zone
+  zone        = var.zone
+  platform_id = var.platform
+
   name     = var.name
   hostname = var.name
 
