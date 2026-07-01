@@ -1,5 +1,8 @@
 variable "zone" {
-  type = string
+  type    = string
+  default = "ru-central1-d"
+  # ^^^ The recommended default for "new projects" as of June '26.
+  # The full list is at https://yandex.cloud/ru/docs/overview/concepts/geo-scope
 }
 
 variable "name" {
