@@ -23,13 +23,13 @@ variable "image" {
   # Debian 12
   #default = "fd8k2ecv2i5bmiblro64"
   # Debian 13
-  default = "fd8tps4kduh4m28n889n"
+  #default = "fd8tps4kduh4m28n889n"
   # Ubuntu 22.04
   #default = "fd8oik3g61qm14kcklca"
   # Ubuntu 24.04
   #default = "fd8cc75vi959cul95ra1"
   # Ubuntu 26.04
-  #default = "fd8h10u4sm2tg8cc7knq"
+  default = "fd8h10u4sm2tg8cc7knq"
 
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
 }
