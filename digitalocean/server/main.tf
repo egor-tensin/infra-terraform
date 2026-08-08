@@ -34,8 +34,3 @@ resource "digitalocean_project_resources" "this" {
   project   = var.project_id
   resources = [digitalocean_droplet.this.urn]
 }
-
-resource "digitalocean_floating_ip_assignment" "this" {
-  ip_address = var.ip_address
-  droplet_id = digitalocean_droplet.this.id
-}
