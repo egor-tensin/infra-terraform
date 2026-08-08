@@ -36,9 +36,6 @@ variable "image" {
 variable "subnet_id" {
   type = string
 }
-variable "ip_address" {
-  type = string
-}
 
 variable "user" {
   type = string

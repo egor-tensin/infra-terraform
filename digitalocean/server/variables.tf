@@ -14,9 +14,6 @@ variable "name" {
 variable "vpc_id" {
   type = string
 }
-variable "ip_address" {
-  type = string
-}
 variable "volume_ids" {
   type    = list(string)
   default = []
