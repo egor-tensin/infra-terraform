@@ -42,6 +42,16 @@ resource "yandex_compute_instance" "this" {
 
   allow_stopping_for_update = true
 
+  dynamic "secondary_disk" {
+    for_each = var.attached_disks
+
+    content {
+      disk_id     = secondary_disk.value.id
+      device_name = secondary_disk.value.name
+      auto_delete = false
+    }
+  }
+
   timeouts {
     create = "3m"
     update = "5m"

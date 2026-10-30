@@ -67,3 +67,12 @@ variable "disk_size" {
   type    = number
   default = 10
 }
+
+variable "attached_disks" {
+  type = list(object({
+    id   = string
+    name = optional(string)
+  }))
+
+  default = []
+}
