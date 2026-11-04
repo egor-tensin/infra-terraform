@@ -18,20 +18,12 @@ variable "name" {
 variable "image" {
   type = string
 
-  # Debian 11
-  #default = "fd8fccvfosff76l4g9cu"
-  # Debian 12
-  #default = "fd8k2ecv2i5bmiblro64"
-  # Debian 13
-  #default = "fd8tps4kduh4m28n889n"
-  # Ubuntu 22.04
-  #default = "fd8oik3g61qm14kcklca"
-  # Ubuntu 24.04
-  default = "fd8cc75vi959cul95ra1"
   # Ubuntu 26.04
-  #default = "fd8h10u4sm2tg8cc7knq"
+  default = "fd8mce1h218lk70kbfk3"
 
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
+  # The image IDs seem to change over time for some reason, and they don't seem
+  # to have image names or whatever.
 }
 variable "subnet_id" {
   type = string
