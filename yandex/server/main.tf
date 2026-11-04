@@ -29,7 +29,12 @@ resource "yandex_compute_instance" "this" {
       image_id = var.image
 
       # As of Nov '26, HDDs seem to be the default, and it's not 90's anymore.
-      type = "network-ssd"
+      #type = "network-ssd"
+      # Actually, scratch that thing above, it seems like it's still the 90s.
+      # When actually tried (the same Nov '26), it said something stupid like
+      #
+      #     The limit on total size of network-ssd disks has exceeded for zone "ru-central1-d"
+      #
     }
   }
 
