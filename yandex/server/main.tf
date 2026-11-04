@@ -27,6 +27,9 @@ resource "yandex_compute_instance" "this" {
     initialize_params {
       size     = var.disk_size
       image_id = var.image
+
+      # As of Nov '26, HDDs seem to be the default, and it's not 90's anymore.
+      type = "network-ssd"
     }
   }
 
