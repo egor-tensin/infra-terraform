@@ -45,7 +45,7 @@ variable "image" {
 variable "size" {
   type = string
 
-  default = "s-1vcpu-2gb"
+  default = "s-1vcpu-2gb-intel"
 
   # Get the full list:
   #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/sizes" | jq .
