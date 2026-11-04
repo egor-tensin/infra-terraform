@@ -1,7 +1,8 @@
 resource "digitalocean_volume" "this" {
-  region                   = var.region
-  name                     = var.name
-  size                     = var.size
+  region = var.zone
+  name   = var.name
+  size   = var.size
+
   initial_filesystem_type  = "ext4"
   initial_filesystem_label = "data"
 
