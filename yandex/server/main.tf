@@ -51,11 +51,11 @@ resource "yandex_compute_instance" "this" {
   allow_stopping_for_update = true
 
   dynamic "secondary_disk" {
-    for_each = var.attached_disks
+    for_each = var.storage
 
     content {
-      disk_id     = secondary_disk.value.id
-      device_name = secondary_disk.value.name
+      disk_id     = secondary_disk.value.disk_id
+      device_name = secondary_disk.value.disk_name
       auto_delete = false
     }
   }

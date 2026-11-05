@@ -25,7 +25,7 @@ resource "digitalocean_droplet" "this" {
   droplet_agent     = false
   graceful_shutdown = true
 
-  volume_ids = [for disk in var.attached_disks : disk.id]
+  volume_ids = [for disk in var.storage : disk.disk_id]
 
   timeouts {
     create = "3m"

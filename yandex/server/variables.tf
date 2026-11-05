@@ -33,6 +33,15 @@ variable "network" {
   })
 }
 
+variable "storage" {
+  type = list(object({
+    disk_id   = string
+    disk_name = optional(string)
+  }))
+
+  default = []
+}
+
 variable "config" {
   type = object({
     user     = string
@@ -56,13 +65,4 @@ variable "memory" {
 variable "disk_size" {
   type    = number
   default = 10
-}
-
-variable "attached_disks" {
-  type = list(object({
-    id   = string
-    name = optional(string)
-  }))
-
-  default = []
 }
