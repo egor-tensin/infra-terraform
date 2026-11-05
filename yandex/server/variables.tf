@@ -10,8 +10,10 @@ variable "name" {
 variable "image" {
   type = string
 
-  # Ubuntu 26.04
-  default = "fd8mce1h218lk70kbfk3"
+  # Note to self: don't use Ubuntu, Canonical people are completely insane with
+  # (among other things) their AppArmor craziness.
+  # Debian 13
+  default = "fd8fr03unuh749utu54t"
 
   # The full list is at https://cloud.yandex.com/en/marketplace?categories=os
   # The image IDs seem to change over time for some reason, and they don't seem
