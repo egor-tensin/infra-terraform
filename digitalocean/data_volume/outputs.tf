@@ -1,3 +1,3 @@
-output "volume_id" {
+output "id" {
   value = digitalocean_volume.this.id
 }

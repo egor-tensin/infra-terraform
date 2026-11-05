@@ -1,3 +1,3 @@
-output "volume_id" {
+output "id" {
   value = yandex_compute_disk.this.id
 }
