@@ -8,13 +8,27 @@ locals {
     ssh_keys    = var.config.ssh_keys
     sshd_config = local.sshd_config
   })
+
+  sizes = {
+    # Get the full list:
+    #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/sizes" | jq .
+    small = {
+      impl = "s-1vcpu-2gb-intel"
+    }
+    normal = {
+      impl = "s-1vcpu-2gb-intel"
+    }
+    big = {
+      impl = "s-2vcpu-4gb-intel"
+    }
+  }
 }
 
 resource "digitalocean_droplet" "this" {
   region = var.zone
   name   = var.name
   image  = var.image
-  size   = var.size
+  size   = local.sizes[var.size].impl
 
   ipv6     = false
   vpc_uuid = var.network.vpc_id

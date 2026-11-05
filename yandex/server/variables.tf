@@ -18,29 +18,13 @@ variable "image" {
   # to have image names or whatever.
 }
 
-variable "platform" {
-  type    = string
-  default = "standard-v2"
-  # ^^^ The least common denominator.
+variable "size" {
+  type = string
 
-  # The full list is at https://yandex.cloud/ru/docs/compute/concepts/vm-platforms
-  # Please notice that some platforms are unavailable in certain zones.
-}
-variable "cores" {
-  type    = number
-  default = 2
-}
-variable "core_fraction" {
-  type    = number
-  default = 100
-}
-variable "memory" {
-  type    = number
-  default = 2
-}
-variable "disk_size" {
-  type    = number
-  default = 10
+  validation {
+    condition     = contains(["small", "normal", "big"], var.size)
+    error_message = "Must be one of 'small', 'normal', 'big'"
+  }
 }
 
 variable "network" {

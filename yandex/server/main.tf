@@ -8,24 +8,49 @@ locals {
     ssh_keys    = var.config.ssh_keys
     sshd_config = local.sshd_config
   })
+
+  sizes = {
+    small = {
+      cores         = 2
+      core_fraction = 50
+      memory        = 2
+      disk_size     = 10
+    }
+    normal = {
+      cores         = 1
+      core_fraction = 100
+      memory        = 2
+      disk_size     = 20
+    }
+    big = {
+      cores         = 2
+      core_fraction = 100
+      memory        = 4
+      disk_size     = 20
+    }
+  }
 }
 
 resource "yandex_compute_instance" "this" {
   zone        = var.zone
-  platform_id = var.platform
+  platform_id = "standard-v2"
+  # ^^^ The least common denominator.
+
+  # The full list is at https://yandex.cloud/ru/docs/compute/concepts/vm-platforms
+  # Please notice that some platforms are unavailable in certain zones.
 
   name     = var.name
   hostname = var.name
 
   resources {
-    cores         = var.cores
-    core_fraction = var.core_fraction
-    memory        = var.memory
+    cores         = local.sizes[var.size].cores
+    core_fraction = local.sizes[var.size].core_fraction
+    memory        = local.sizes[var.size].memory
   }
 
   boot_disk {
     initialize_params {
-      size     = var.disk_size
+      size     = local.sizes[var.size].disk_size
       image_id = var.image
 
       # As of Nov '26, HDDs seem to be the default, and it's not 90's anymore.
