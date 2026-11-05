@@ -11,17 +11,21 @@ locals {
 }
 
 resource "digitalocean_droplet" "this" {
-  image             = var.image
-  name              = var.name
-  region            = var.region
-  size              = var.size
+  image  = var.image
+  name   = var.name
+  region = var.zone
+  size   = var.size
+
+  ipv6     = false
+  vpc_uuid = var.vpc_id
+
+  user_data = local.user_data
+
   monitoring        = true
-  ipv6              = false
-  vpc_uuid          = var.vpc_id
-  user_data         = local.user_data
-  volume_ids        = var.volume_ids
   droplet_agent     = false
   graceful_shutdown = true
+
+  volume_ids = [for disk in var.attached_disks : disk.id]
 
   timeouts {
     create = "3m"

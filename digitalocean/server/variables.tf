@@ -1,4 +1,4 @@
-variable "region" {
+variable "zone" {
   type = string
 
   # Get the full list, along with available droplet sizes:
@@ -14,8 +14,11 @@ variable "name" {
 variable "vpc_id" {
   type = string
 }
-variable "volume_ids" {
-  type    = list(string)
+variable "attached_disks" {
+  type = list(object({
+    id = string
+  }))
+
   default = []
 }
 
