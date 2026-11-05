@@ -11,9 +11,13 @@ variable "project_id" {
 variable "name" {
   type = string
 }
-variable "vpc_id" {
-  type = string
+
+variable "networking" {
+  type = object({
+    vpc_id = string
+  })
 }
+
 variable "attached_disks" {
   type = list(object({
     id = string

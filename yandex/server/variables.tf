@@ -25,11 +25,12 @@ variable "image" {
   # The image IDs seem to change over time for some reason, and they don't seem
   # to have image names or whatever.
 }
-variable "subnet_id" {
-  type = string
-}
-variable "ip_address" {
-  type = string
+
+variable "networking" {
+  type = object({
+    vpc_id     = string
+    ip_address = string
+  })
 }
 
 variable "user" {

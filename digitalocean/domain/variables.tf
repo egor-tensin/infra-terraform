@@ -1,7 +1,3 @@
-variable "project_id" {
-  type = string
-}
-
 variable "name" {
   type = string
 }
@@ -12,4 +8,8 @@ variable "ip_address" {
 variable "aliases" {
   type    = list(string)
   default = []
+}
+
+variable "project_id" {
+  type = string
 }
