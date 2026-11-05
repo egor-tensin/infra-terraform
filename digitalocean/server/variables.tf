@@ -18,23 +18,20 @@ variable "networking" {
   })
 }
 
+variable "config" {
+  type = object({
+    user     = string
+    ssh_keys = list(string)
+    ssh_port = optional(string, "22")
+  })
+}
+
 variable "attached_disks" {
   type = list(object({
     id = string
   }))
 
   default = []
-}
-
-variable "user" {
-  type = string
-}
-variable "ssh_keys" {
-  type = list(string)
-}
-variable "ssh_port" {
-  type    = string
-  default = "22"
 }
 
 variable "image" {

@@ -1,11 +1,11 @@
 locals {
   sshd_config = templatefile("${path.module}/../../etc/sshd_config", {
-    port  = var.ssh_port
-    users = [var.user]
+    port  = var.config.ssh_port
+    users = [var.config.user]
   })
   user_data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
-    user        = var.user
-    ssh_keys    = var.ssh_keys
+    user        = var.config.user
+    ssh_keys    = var.config.ssh_keys
     sshd_config = local.sshd_config
   })
 }

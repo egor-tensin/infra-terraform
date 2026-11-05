@@ -33,15 +33,12 @@ variable "networking" {
   })
 }
 
-variable "user" {
-  type = string
-}
-variable "ssh_keys" {
-  type = list(string)
-}
-variable "ssh_port" {
-  type    = string
-  default = "22"
+variable "config" {
+  type = object({
+    user     = string
+    ssh_keys = list(string)
+    ssh_port = optional(string, "22")
+  })
 }
 
 variable "cores" {
