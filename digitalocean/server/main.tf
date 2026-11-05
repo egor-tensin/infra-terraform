@@ -11,9 +11,9 @@ locals {
 }
 
 resource "digitalocean_droplet" "this" {
-  image  = var.image
-  name   = var.name
   region = var.zone
+  name   = var.name
+  image  = var.image
   size   = var.size
 
   ipv6     = false

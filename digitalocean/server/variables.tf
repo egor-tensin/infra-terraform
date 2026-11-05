@@ -11,6 +11,27 @@ variable "project_id" {
 variable "name" {
   type = string
 }
+variable "image" {
+  type = string
+
+  #default = "debian-12-x64"
+  #default = "debian-13-x64"
+  #default = "ubuntu-22-04-x64"
+  #default = "ubuntu-24-04-x64"
+  default = "ubuntu-26-04-x64"
+
+  # Get the full list:
+  #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?type=distribution" | jq .
+}
+
+variable "size" {
+  type = string
+
+  default = "s-1vcpu-2gb-intel"
+
+  # Get the full list:
+  #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/sizes" | jq .
+}
 
 variable "network" {
   type = object({
@@ -32,27 +53,6 @@ variable "config" {
     ssh_keys = list(string)
     ssh_port = optional(string, "22")
   })
-}
-
-variable "image" {
-  type = string
-
-  #default = "debian-12-x64"
-  #default = "debian-13-x64"
-  #default = "ubuntu-22-04-x64"
-  #default = "ubuntu-24-04-x64"
-  default = "ubuntu-26-04-x64"
-
-  # Get the full list:
-  #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/images?type=distribution" | jq .
-}
-variable "size" {
-  type = string
-
-  default = "s-1vcpu-2gb-intel"
-
-  # Get the full list:
-  #     curl -H "Content-Type: application/json" -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" "https://api.digitalocean.com/v2/sizes" | jq .
 }
 
 variable "alert_cpu_enable" {
