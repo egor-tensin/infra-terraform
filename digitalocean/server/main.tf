@@ -17,7 +17,7 @@ resource "digitalocean_droplet" "this" {
   size   = var.size
 
   ipv6     = false
-  vpc_uuid = var.networking.vpc_id
+  vpc_uuid = var.network.vpc_id
 
   user_data = local.user_data
 

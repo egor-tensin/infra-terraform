@@ -12,7 +12,7 @@ variable "name" {
   type = string
 }
 
-variable "networking" {
+variable "network" {
   type = object({
     vpc_id = string
   })

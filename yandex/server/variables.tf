@@ -26,7 +26,7 @@ variable "image" {
   # to have image names or whatever.
 }
 
-variable "networking" {
+variable "network" {
   type = object({
     vpc_id     = string
     ip_address = string

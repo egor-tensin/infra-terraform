@@ -39,9 +39,9 @@ resource "yandex_compute_instance" "this" {
   }
 
   network_interface {
-    subnet_id      = var.networking.vpc_id
+    subnet_id      = var.network.vpc_id
     nat            = true
-    nat_ip_address = var.networking.ip_address
+    nat_ip_address = var.network.ip_address
   }
 
   metadata = {
