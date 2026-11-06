@@ -17,7 +17,7 @@ locals {
       disk_size     = 10
     }
     normal = {
-      cores         = 1
+      cores         = 2
       core_fraction = 100
       memory        = 2
       disk_size     = 20
