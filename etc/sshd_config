@@ -2,7 +2,7 @@ Port ${port}
 PermitRootLogin no
 AllowGroups ${join(" ", users)}
 PasswordAuthentication no
-ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
 AuthenticationMethods publickey
 PrintMotd no
 AcceptEnv LANG LC_*
