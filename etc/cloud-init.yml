@@ -22,6 +22,8 @@ runcmd:
   # /etc/ssh/sshd_config, parse the Port value, and generate a systemd override
   # file on the fly, which is idiotic. Of course, it's not consistent between
   # different releases. Look here, I guess?
+  #
   #     https://askubuntu.com/q/1439461
+  #
   - systemctl daemon-reload
   - systemctl is-active --quiet ssh.socket && systemctl restart ssh.socket

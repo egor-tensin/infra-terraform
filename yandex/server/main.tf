@@ -1,14 +1,4 @@
 locals {
-  sshd_config = templatefile("${path.module}/../../etc/sshd_config", {
-    port  = var.config.ssh_port
-    users = [var.config.user]
-  })
-  user_data = templatefile("${path.module}/../../etc/cloud-init.cfg", {
-    user        = var.config.user
-    ssh_keys    = var.config.ssh_keys
-    sshd_config = local.sshd_config
-  })
-
   sizes = {
     small = {
       cores         = 2
@@ -29,6 +19,16 @@ locals {
       disk_size     = 20
     }
   }
+
+  sshd_config = templatefile("${path.module}/../../etc/sshd_config", {
+    port  = var.config.ssh_port
+    users = [var.config.user]
+  })
+  user_data = templatefile("${path.module}/../../etc/cloud-init.yml", {
+    user        = var.config.user
+    ssh_keys    = var.config.ssh_keys
+    sshd_config = local.sshd_config
+  })
 }
 
 resource "yandex_compute_instance" "this" {
