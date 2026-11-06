@@ -1,7 +1,10 @@
 infra-terraform
 ===============
 
-Some common Terraform modules used by me to manage things.
+Some common Terraform modules used by me to manage things (for example, see
+[infra-cloud]).
+
+[infra-cloud]: https://github.com/egor-tensin/infra-cloud
 
 Usage
 -----
