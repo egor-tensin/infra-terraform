@@ -1,6 +1,6 @@
-output "droplet_id" {
+output "id" {
   value = digitalocean_droplet.this.id
 }
-output "droplet_ip" {
+output "ip" {
   value = digitalocean_droplet.this.ipv4_address
 }
